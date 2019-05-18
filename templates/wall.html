@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Wall</title>
+    <link href="https://fonts.googleapis.com/css?family=Akronim&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='wall.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <h2>
+            THE WALL
+        </h2>
+        <ul>
+            <li><a href="/wall">Wall</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h3 class="greeting">
+            Hello, {{ you.first_name }}!
+        </h3>
+        <div class="col">
+            <div>
+                {% with messages = get_flashed_messages(category_filter=["success-inbox"]) %}
+                {% if messages %}
+                {% for m in messages %}
+                <p class="text-success">{{m}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <h3>Messages For you</h3>
+            {% if msgs|length > 0 %}
+            <div class="msg-row">
+                {{ msgs|length }} messages for you.
+            </div>
+            {% for msg in msgs %}
+            <div class="msg-row">
+                <h4>{{ msg.first_name}} {{ msg.last_name }}</h4>
+                <div class="received-msg">
+                    {{ msg.message }}
+                </div>
+                <a href="/messages/delete/{{ msg.message_id }}">
+                    <img src="{{ url_for('static', filename='garbage.png') }}" alt="delete" class="del-icon" />
+                </a>
+                <p class="sub">
+                    Sent on {{ msg.created_on }}
+                </p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="msg-row">
+                No Messages
+            </div>
+            {% endif %}
+        </div>
+        <div class="col">
+            <div>
+                {% with messages = get_flashed_messages(category_filter=["success-send"]) %}
+                {% if messages %}
+                {% for m in messages %}
+                <p class="text-success">{{m}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <h3>Send Messages</h3>
+            {% with messages = get_flashed_messages(category_filter=["message_error"]) %}
+            {% if messages %}
+            {% for m in messages %}
+            <p class="text-danger">{{m}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="msg-row">
+                You have sent {{ send_count }} messages.
+            </div>
+
+            {% for user in users %}
+            <div class="msg-row">
+                <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+                <form action="/messages/send" method="POST">
+                    <input type="hidden" value="{{ user.user_id }}" name="recipient_id" />
+                    <textarea class="msgs" name="message"></textarea>
+                    <input type="submit" value="Send" class="msg-btn" />
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</body>
+
+</html>

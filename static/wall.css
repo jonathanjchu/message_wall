@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #1e2c42;
+    color: #EFEFEF;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif
+}
+
+.error {
+    color: #FF6F6F;
+}
+
+.container {
+    padding: 12px;
+    margin: 24px;
+    width: 90%;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    /* background-color: #B9D5EE; */
+    background-image: linear-gradient(#809DB6, #ADC2D6, #6C8BA7);
+    /* background-image: linear-gradient(#A9CBE8, #B9D5EE, #8CC2F2); */
+    color: #1F2428;
+}
+
+.navbar h2 {
+    display: inline-block;
+    padding: 12px;
+    margin: 12px 24px;
+    font: bold 32px Akronim, Helvetica, Arial, sans-serif;
+}
+
+.navbar ul {
+    display: inline-block;
+}
+
+.navbar ul li {
+    display: inline-block;
+    color: #1F2428;
+    font: bold 14px "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 0 24px;
+    vertical-align: top;
+}
+
+.navbar a {
+    display: inline-block;
+    color: #1F2428;
+    text-decoration: none;
+
+}
+
+.greeting {
+    margin: 12px 24px;
+    font: bold 20px "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.col {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.col h4 {
+    text-align: center;
+}
+
+input, button {
+    background-color: #14171A;
+    color: #EEEEEE;
+}
+
+label {
+    font: 14px "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.text-danger {
+    color: red;
+    font: 12px "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.text-success {
+    color: white;
+    font: 12px "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.form-reg {
+    background-color: #14171A;
+    color: #EEEEEE;
+    font: 12px "Segoe UI", Helvetica, Arial, sans-serif;
+    height: 20px;
+    width: 180px;
+    margin: 3px;
+    padding: 1px;
+}
+
+.form-btn {
+    font: 11px "Segoe UI", Helvetica, Arial, sans-serif;
+    height: 24px;
+    width: 100px;
+    border-radius: 3px;
+    margin: 3px;
+}
+
+.msg-row {
+    margin: 12px;
+    text-align: left;
+}
+
+.msgs {
+    height: 80px;
+    width: 280px;
+    resize: none;
+    background-color: #283f63;
+    color: #EEEEEE;
+}
+
+.msg-btn {
+    background-color: #283f63;
+    color: #eeeeee;
+    vertical-align: top;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-radius: 6px;
+    border: solid 1px #8babe0;
+}
+
+.msg-row h4 {
+    text-align: left;
+}
+
+.msg-row a {
+    color: transparent;
+}
+
+.received-msg {
+    min-height: 48px;
+    width: 280px;
+    background-color: #253349;
+    border: 1px solid #576d91;
+    padding: 3px;
+}
+
+.msg-row .sub {
+    font: 10px "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #79a0d1;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.del-icon {
+    width: 9px;
+    margin: 3px;
+    display: inline-block;
+    vertical-align: top;
+}
